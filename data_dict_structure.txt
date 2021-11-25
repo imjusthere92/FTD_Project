@@ -1,0 +1,25 @@
+data = {
+	'Fundamentals':                    			##
+	{
+		'sharesOutstanding': 17213236419,		## Sourced from IEX for ETFs, FMP for Equity
+		 'floatShares': 16389334347.0,			## Can't source for ETFs at the moment - can get from FMP for Equity
+		 'debt_ratio': 'debt_ratioValue',		## Blank - no source yet 
+		 'exchange': 'Nasdaq Global Select',    ## Sourced from FMP 
+		 'final_close_price': 149.800003,		## Sourced from iex_statistics
+		 'peRatio': 14.407047826172997,			## Sourced from iex_statistics, =0 for ETFs
+		 'beta': 1.4575864187912306,			## Sourced from iex_statistics for Equity, =0 for ETFs
+		 'week52high': 169.1,					## Sourced from iex_statistics
+		 'week52low': 118.18,					## Sourced from iex_statistics
+		 'week52change': 0.4124429632647193,    ## Sourced from iex_statistics
+		 'avg10Volume': 102534515,				## Sourced from iex_statistics
+		 'avg30Volume': 79254408,				## Sourced from iex_statistics
+		 'marketcap_IEX': 2663047538957,		## Sourced from iex_statistics
+		 'marketcap_FMP': 2656852508672			## Sourced from FMP	
+	},
+	'dataFrame':time_series_df,							## FMP historical merged with Nasdaq Short Data and SEC FTD Data
+	'companyProfile':FMP_company_profile_json,         	## Sourced from FMP, otherwise =0
+	'floatData':FMP_float_data_df,   					## Sourced from FMP, otherwise =0
+	'textNews':['article1','article2','article3'],    	## Not sourced
+	'returns':'returns_data',    						## Not calculated
+	'iex_statistics':'iex_statistics_data_json'     	## Added to completed data_dicts, both ETFs and Equity
+}
