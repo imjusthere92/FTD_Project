@@ -8,6 +8,7 @@ Model_Data_high_loss
 Model_Data_shift_high_loss
 DRL-ICA-91521-scaled.jpeg
 SEC_Raw
+SEC_Test_Nov2021
 Resources_Old
 Resources_Test
 FilesExport_TimeSeries_DFs
@@ -15,6 +16,5 @@ FilesExport_DataDicts
 folders_to_keep_Jan2022.txt
 Functions
 Functions2
-FunctionsOld
 Functions_Analysis
 
