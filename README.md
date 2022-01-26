@@ -24,6 +24,8 @@ Parts above are finished
 
 05 sorts the equities at this point, and cuts down the current list of symbols from just under 6000, to ones with relevant FTD and short interest statistics. 
 
+05_00 contains calculations to determine outliers, maximums, and to perform specific calculations using current data
+
 06 appends technical indicator data to the dataframes and exports the new data. 
 
 
