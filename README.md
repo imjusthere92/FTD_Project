@@ -20,18 +20,20 @@ See 'data_dict_structure.txt' for preview of how this data_dict is built, and ca
 04 performs calculations using the gathered data, in order to begin sorting symbols by their FTD quantities and short interest metrics. 
 04 exports completed data_dict's, minus the technical indicator data, which still needs to be added and calculated. 
 
-Parts above are finished
 
 05 sorts the equities at this point, and cuts down the current list of symbols from just under 6000, to ones with relevant FTD and short interest statistics. 
+05 contains calculations to determine outliers, maximums, and to perform specific calculations using current data
+05 eventually sorts the 5493 symbols down to 1563 symbols, based off symbols which have both 5% of their outstandingShares/Float fail to deliver in the past year, while ALSO having 20% of total volume in same time period recorded as short sales
+05 exports these symbols as 05_machine_learning_dict.pkl to be used in 06
 
-05_00 contains calculations to determine outliers, maximums, and to perform specific calculations using current data
 
-06 appends technical indicator data to the dataframes and exports the new data. 
+Finished up to here 
 
 
+06 appends technical indicator data to the dataframes, shifts the data, and exports the new dataframes, ready to be used for Machine Learning. 
 
 Next steps - 
 
 (technical indicator part needs to be added either now or after 05)
 
-Sort the symbols. Calculate TI. Shift the data(?). Start running machine learning models. 
+Calculate TI. Shift the data(?). Start running machine learning models. Evaluate models. Come up with solution to 15-day missing data. 
