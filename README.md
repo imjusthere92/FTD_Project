@@ -31,14 +31,25 @@ See 'data_dict_structure.txt' for preview of how this data_dict is built, and ca
 
 
 
-Finished up to here 
+
 
 06 appends technical indicator data to the dataframes, shifts the data, and exports the new dataframes, ready to be used for Machine Learning. 
 
-07 will run the Machine Learning models 
+06_01 appends TI calculations, without shifting the data
+06_02 appends TI calculations, and also shifts the data 
+
+
+
+07 will run the Machine Learning models. 
+
+07_01 will run non-shifted data for ML models
+07_02 will run shifted data for ML models 
+
+06_01 is finished. 06_02 still needs to be done. 
+Starting 07_01 now and running ML models with no shifted data for now. 
 
 Next steps - 
 
-(technical indicator part needs to be added either now or after 05)
+Shift data for TI, run models with shifted data. 
 
-Calculate TI. Shift the data(?). Start running machine learning models. Evaluate models. Come up with solution to 15-day missing data. 
+Then, compare and evaluate models, and go from there. 
