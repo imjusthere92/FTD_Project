@@ -45,12 +45,25 @@ See 'data_dict_structure.txt' for preview of how this data_dict is built, and ca
 07_01 will run non-shifted data for ML models
 07_02 will run shifted data for ML models 
 
+## Machine Learning Folders
+Model_Data_low_loss - contains Model Data for non-shifted data, FTD data and all 
+      Resouces/symbol_accuracy_dict_low.pkl contains symbol keys and accuracy data for imports and evaluation. 
+Model_Data_shift_low_loss - contains Model Data for shifted data, FTD data and all 
+      Resouces/shift_symbol_accuracy_dict_low.pkl contains symbol keys and accuracy data for imports and evaluation. 
+
+Model_Data_low_loss_2 - contains Model Data for same non-shifted data, but without FTD included
+      Resouces_2/symbol_accuracy_dict_low.pkl contains symbol keys and accuracy data for imports and evaluation.
+
+
+## Updates 
+
 Machine learning models for 07_01(no shift), 07_02(shifted), and models with no FTD data are now finished.  
 
 
 
-Next steps - 
+## Next steps - 
 
-Build LSTM models and begin running variations of them. 
+Build LSTM models and other models and begin running variations of them. 
 
 Evaluate existing models as they finish and begin determined the best results. 
+
