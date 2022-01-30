@@ -45,11 +45,12 @@ See 'data_dict_structure.txt' for preview of how this data_dict is built, and ca
 07_01 will run non-shifted data for ML models
 07_02 will run shifted data for ML models 
 
-06_01 is finished. 06_02 still needs to be done. 
-Starting 07_01 now and running ML models with no shifted data for now. 
+Machine learning models for 07_01(no shift), 07_02(shifted), and models with no FTD data are now finished.  
+
+
 
 Next steps - 
 
-Shift data for TI, run models with shifted data. 
+Build LSTM models and begin running variations of them. 
 
-Then, compare and evaluate models, and go from there. 
+Evaluate existing models as they finish and begin determined the best results. 
