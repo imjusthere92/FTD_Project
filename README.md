@@ -24,68 +24,74 @@ If time allows - more than LSTM will be used for FTD prediction. But for now, a 
 
 
 
-Code is located in Functions_Jan2022 Folder
+There are five folders with useful model data that will be used for the project presentation
+All located in '../Model_Data/'
 
-01 file is for gathering SEC data and combining it all together. 
-01 exports ftd_all_data and symbol_all_list in Resources folder. 
+There are two sets of Neural Network (NN) models which are direct improvements upon the original machine-learning models from FTD_Project_2. The difference between each set, which should be obvious from the title path, is one set of models was trained with and including the SEC's FTD data, while the second set had the FTD data omitted from the models. Each model is improved relative to FTD_Project_2, because now they not only attempt to predict the close price with the data provided, but now they attempt to forecast the close price 1, 2, 5, or 10 days in advance. 
 
-02 file is for gathering historical EOD price data for the last 5-6 years, and combining it together with FTD statistics from and Short Interest Data from FINRA. 
-02 exports dataframes, and the 02_symbol_success_list. Not all symbols in this list will be viable for Machine Learning, and further data needs to be gathered before settling on the symbols for the models. 
-
-The folder for the raw historical data (at this point) is not on GIT, more data will be added before uploading the dataframes to git will occur. 
-
-A successful symbol means the dataframe exported had >1500 rows of data in the dataframe, or ~6 years worth of historical data for Machine Learning. 
-
-03 file is for gathering fundamental data about the successful symbols, and creating dictionaries for each stock symbol to be saved and read in other files.
-03 exports data_dicts which contain fundamental data about each stock symbol, with the dataframe appended, all in one dictionary. 
-
-See 'data_dict_structure.txt' for preview of how this data_dict is built, and can be accessed.      ## NOTE: Will need to update this text document with updated structure. 
-
-04 performs calculations using the gathered data, in order to begin sorting symbols by their FTD quantities and short interest metrics. 
-04 exports completed data_dict's, minus the technical indicator data, which still needs to be added and calculated. 
+Model locations: 
+Model_1: 
+path_1 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data
+Model_2: 
+path_2 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data 
 
 
-05 sorts the equities at this point, and cuts down the current list of symbols from just under 6000, to ones with relevant FTD and short interest statistics. 
-05 contains calculations to determine outliers, maximums, and to perform specific calculations using current data
 
-05 eventually sorts the 5493 symbols down to 1563 symbols, based off symbols which have both 5% of their outstandingShares/Float fail to deliver in the past year, while ALSO having 20% of total volume in same time period recorded as short sales
+The third set of models shares a similarity with the previous two NN models - it used the same dataset (up to Dec31st) to train, however, instead of a neural network (NN) model, it is an LSTM model designed to supplement the performance of the NN models and compare its results alongside. This third model does not predict/forecast data in quite the same way as the NN models - it should be used as a comparison or addition to the 1-day NN models listed above. It also acts as demonstration that LSTM-models can also be used, in addition to NN, to predict/track the closing price using our FTD, Short Interest, and Historical Pricing dataset. 
 
-05 exports these symbols as 05_machine_learning_dict.pkl to be used in 06
+Model Location:
+Model_3: 
+path_3 = Path('../Model_Data/LSTM_Model_Data_1/')  ## Contains LSTM models trained with FTD data, up to Dec31st. 
 
-## The 05_machine_learning_dict.pkl contatins the list of stocks that will be used for the ML models. 
 
-06 appends technical indicator data to the dataframes, shifts the data, and exports the new dataframes, ready to be used for Machine Learning. 
 
-06_01 appends TI calculations, without shifting the data
-06_02 appends TI calculations, and also shifts the data 
+The fourth set of models were designed after early evaluations of models _1 and _2. The purpose of the first two models was to compare the effect of removing the FTD Data from the features of the machine learning model, and early evaluations showed that, while definitely improving the accuracy of the models when included, the FTD data was not necessary or required in order to achieve accurate price tracking / predictions. So, the fourth (and fifth) models were designed as concept of how these models could genuinely be used to make predictions, select stock symbols, plan a buying strategy, and actually trade using these models that have been created over the course of this project. 
 
-## 07 will run the Machine Learning models. 
+Model Location:
+Model_4:
+path_4 = Path('../Model_Data/Feb2022_NN_models/') Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February. 
+    
+The fifth set of models were created for the same purpose as the fourth and perform a 10-day forecast of close price for a given stock. Instead of a NN model, this is an improved-upon (relative to Model_3) LSTM model that alongside our NN can be used to forecast stock price predictions, with enough accuracy that one could consider trading off these models. 
 
-07_01 will run non-shifted data for ML models
-07_02 will run shifted data for ML models 
+Model Location:
+Model_5:
+path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'
+
+
+
+
+
+
+Code is located in their respective Functions_ Folder
+
 
 ## Machine Learning Folders
-Model_Data_low_loss - contains Model Data for non-shifted data, FTD data and all 
-      Resouces/symbol_accuracy_dict_low.pkl contains symbol keys and accuracy data for imports and evaluation. 
-      
-Model_Data_shift_low_loss - contains Model Data for shifted data, FTD data and all 
-      Resouces/shift_symbol_accuracy_dict_low.pkl contains symbol keys and accuracy data for imports and evaluation. 
 
-Model_Data_low_loss_2 - contains Model Data for same non-shifted data, but without FTD included
-      Resouces_2/symbol_accuracy_dict_low.pkl contains symbol keys and accuracy data for imports and evaluation.
+Model locations: 
+Model_1: 
+path_1 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data
+Model_2: 
+path_2 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data 
+
+Model Location:
+Model_3: 
+path_3 = Path('../Model_Data/LSTM_Model_Data_1/')  ## Contains LSTM models trained with FTD data, up to Dec31st. 
+
+Model Location:
+Model_4:
+path_4 = Path('../Model_Data/Feb2022_NN_models/') Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February. 
+
+Model Location:
+Model_5:
+path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'
 
 
 ## Updates 
 
-Machine learning models for 07_01(no shift), 07_02(shifted), and models with no FTD data are now finished.  
-
-LSTM Models are complining and can now be tweaked and worked on. So far, they are terrible at predicting closing price, but results will hopefully be different for FTDs. 
-Will compile both price prediction and FTD models overnight with basic LSTM settings before attempting to tweak LSTM arguments to improve models. 
+Models are finished. For now. Evaluation and comparison on completed models needs to be performed. 
 
 ## Next steps - 
 
-Build LSTM models and other models and begin running variations of them. 
+Evaluate and compare models. Prepare data for presentation. 
 
-Evaluate existing models as they finish and begin determing the best results. 
-
-Begin visualizing data and preparing for presentation. 
+Find out status of "front-end" development from other group members. 
