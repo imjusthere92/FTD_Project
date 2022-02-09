@@ -110,13 +110,19 @@ Code is located in their respective Functions_ Folder
 ## Code Folders 
 
 Functions_Date_shift_models/ contains the code which tested and built the NN models that comprise model sets 1 and 2
+
 Functions_Evaluation/ contains the code which can load and evaluate all the fitted and saved model results
+
 Functions_Feb2022_Models/ contains the code which tested and built model sets 4 and 5 
+
 
 Functions_Jan2022/ is an important folder, and contains the code which collects the data used for the features of the machine learning models, as well as the code which helps calculate and decide which symbols to process machine learning on. It also contains the code for running technical indicators. The model code (07) in this folder, while an improved version of the models from FTD_Project_2, was effectively scrapped in favour of the models built and created in the Functions_Date_shift_models/ folder 
 
+
 Functions_Jan2022_GRU/ can be ignored. Was tested in other folders and GRU testing was dropped due to lack of time to fit the models. Will be tested in the future. 
+
 Functions_Jan2022_LSTM/ contains the code that tested and built model set 3, and LSTM testing code in general. Testing code inside may be useful if trying to understand shaping process for LSTM data. 
+
 Functions_Predict_FTDs/ testing folder for attempting to predict FTDs, was ultimately a failure. Would need an entirely different dataset in order to attempt to predict FTDs 
 Functions_Update_Dataframes/ code to build updates for DataFrames of stock data, without needing to overwrite any existing data 
 
