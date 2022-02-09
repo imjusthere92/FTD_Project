@@ -8,8 +8,11 @@ The answer appeared to be yes, models can be made with FTD and Short Interest da
 FTD_Project_3 aims to solve this problem, and eventually present a working, complete and tradeable model, by using additional machine learning techniques alongside our existing data to attempt to predict the missing FTD data for the final 15 days we do not have. 
 
 Problem One : FTD data 
+
 The FTD from the SEC, which is permanently delayed by 10 trading-days (2 weeks) or more, is the most significant issue, because it means the models would be missing the most recent data while attempting to make price predictions. 
+
 To try and overcome this, we thought of two solutions:
+
 Try predicting the missing FTD data using machine-learning techniques 
     This failed, for many reasons
 Remove the FTD Data from the models, which would serve two purposes
@@ -17,21 +20,34 @@ Remove the FTD Data from the models, which would serve two purposes
     Provides a proper comparison and evaluation of the FTD Data and its effect on the accuracy of the models 
     
 Problem Two : Improving Model Accuracy and Predication Capabilities
+
 While the models from Project 2 were able to quite accurately track the same-day closing price using our provided dataset, they were not ready or set up to accurately make future predictions using the data. 
+
 Originally, the models only really performed same-day predictions using our datasets
+
 Now, the Neural Network (NN) models have been improved to be capable of 1, 2, 5 and 10-day forecasting 
+
 Additionally, an LSTM-model has been created which can supplement the NN models as additional prediction method. 
     The LSTM model method is quite effective at predicting same-day prices, similar to the NN from Project_2, however it requires significant amounts of setup and time to run in order to accurately forecast prices as effectively as the NN models 
 
 Model Details 
+
 Five sets of models were created and trained
+
 For the first three model sets: 
+
 Data was used from the start of 2016 until the end of December 2021
+
 Predictions were then made up to the first 10 trading days into January
+
 This allowed the models to be accurately evaluated, as all data from January is available 
+
 The last two model sets:
+
 Use data up to the end of January 2022 
+
 Proof-of-concept of how this project can be used to predict closing prices on stock symbols 
+
 
 What is a model set? 
 Model set = 770+ individual models, one (or 4) per stock symbol provided 
@@ -68,14 +84,19 @@ Attempts to provide a 10-day price forecast like the forecast provided by Model_
 
 
 There are five folders with useful model data that will be used for the project presentation
+
 All located in '../Model_Data/'
 
 There are two sets of Neural Network (NN) models which are direct improvements upon the original machine-learning models from FTD_Project_2. The difference between each set, which should be obvious from the title path, is one set of models was trained with and including the SEC's FTD data, while the second set had the FTD data omitted from the models. Each model is improved relative to FTD_Project_2, because now they not only attempt to predict the close price with the data provided, but now they attempt to forecast the close price 1, 2, 5, or 10 days in advance. 
 
 Model locations: 
+
 Model_1: 
+
 path_1 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data
+
 Model_2: 
+
 path_2 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data 
 
 
@@ -83,7 +104,9 @@ path_2 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained
 The third set of models shares a similarity with the previous two NN models - it used the same dataset (up to Dec31st) to train, however, instead of a neural network (NN) model, it is an LSTM model designed to supplement the performance of the NN models and compare its results alongside. This third model does not predict/forecast data in quite the same way as the NN models - it should be used as a comparison or addition to the 1-day NN models listed above. It also acts as demonstration that LSTM-models can also be used, in addition to NN, to predict/track the closing price using our FTD, Short Interest, and Historical Pricing dataset. 
 
 Model Location:
+
 Model_3: 
+
 path_3 = Path('../Model_Data/LSTM_Model_Data_1/')  ## Contains LSTM models trained with FTD data, up to Dec31st. 
 
 
@@ -91,13 +114,17 @@ path_3 = Path('../Model_Data/LSTM_Model_Data_1/')  ## Contains LSTM models train
 The fourth set of models were designed after early evaluations of models _1 and _2. The purpose of the first two models was to compare the effect of removing the FTD Data from the features of the machine learning model, and early evaluations showed that, while definitely improving the accuracy of the models when included, the FTD data was not necessary or required in order to achieve accurate price tracking / predictions. So, the fourth (and fifth) models were designed as concept of how these models could genuinely be used to make predictions, select stock symbols, plan a buying strategy, and actually trade using these models that have been created over the course of this project. 
 
 Model Location:
+
 Model_4:
+
 path_4 = Path('../Model_Data/Feb2022_NN_models/') Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February. 
     
 The fifth set of models were created for the same purpose as the fourth and perform a 10-day forecast of close price for a given stock. Instead of a NN model, this is an improved-upon (relative to Model_3) LSTM model that alongside our NN can be used to forecast stock price predictions, with enough accuracy that one could consider trading off these models. 
 
 Model Location:
+
 Model_5:
+
 path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'
 
 
@@ -129,22 +156,31 @@ Functions_Update_Dataframes/ code to build updates for DataFrames of stock data,
 
 ## Machine Learning Folders
 
-Model locations: 
+Model locations:
+
 Model_1: 
+
 path_1 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data
 Model_2: 
+
 path_2 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data 
 
 Model Location:
+
 Model_3: 
+
 path_3 = Path('../Model_Data/LSTM_Model_Data_1/')   Contains LSTM models trained with FTD data, up to Dec31st
 
 Model Location:
+
 Model_4:
+
 path_4 = Path('../Model_Data/Feb2022_NN_models/')    Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February
 
 Model Location:
+
 Model_5:
+
 path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'   Contains LSTM models, which use the same data as Model Set 4, but use LSTM to make a 10-day prediction into February 
 
 
