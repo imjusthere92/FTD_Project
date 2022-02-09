@@ -176,8 +176,6 @@ Functions_Update_Dataframes/ code to build updates for DataFrames of stock data,
 
 ## Machine Learning Folders
 
-Model locations:
-
 Model_1: 
 
 path_1 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data
@@ -186,19 +184,13 @@ Model_2:
 
 path_2 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data 
 
-Model Location:
-
 Model_3: 
 
 path_3 = Path('../Model_Data/LSTM_Model_Data_1/')   Contains LSTM models trained with FTD data, up to Dec31st
 
-Model Location:
-
 Model_4:
 
 path_4 = Path('../Model_Data/Feb2022_NN_models/')    Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February
-
-Model Location:
 
 Model_5:
 
