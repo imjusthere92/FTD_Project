@@ -1,24 +1,67 @@
 # FTD_Project_3
 
-This project is a continuation of FTD_Project_2. FTD_Project_2 aimed to discover whether or not FTD and Short Interest data could be used alongside machine learning in order to make predictions on a stocks future price movements, predictions which could then be used to make real trading decisions with.
+This project is a continuation of FTD_Project_2. FTD_Project_2 can be viewed in the "Fintech_Submission_Branch" branch of this git repo. FTD_Project_2 aimed to discover whether or not FTD and Short Interest data could be used alongside machine learning in order to make predictions on a stocks future price movements, predictions which could then be used to make real trading decisions with.
 
-The answer appeared to be yes, models can be made with FTD and Short Interest data - but with one significant problem: The FTD data from the SEC, is permanently delayed by 15 days or more, as the data is always released on a roughly two-week delay relative to when the actual data is recorded. 
+The answer appeared to be yes, models can be made with FTD and Short Interest data - However, there are two main issues to overcome before the models could really be used to make real-life trading decisions. 
+
 
 FTD_Project_3 aims to solve this problem, and eventually present a working, complete and tradeable model, by using additional machine learning techniques alongside our existing data to attempt to predict the missing FTD data for the final 15 days we do not have. 
 
-By using our models and data from FTD_Project_2, we can identify the most accurate models and stock symbols using our current data. And then supplement those models with LSTM models that attempt to predict FTD data for the missing 15 days. 
+Problem One : FTD data 
+The FTD from the SEC, which is permanently delayed by 10 trading-days (2 weeks) or more, is the most significant issue, because it means the models would be missing the most recent data while attempting to make price predictions. 
+To try and overcome this, we thought of two solutions:
+Try predicting the missing FTD data using machine-learning techniques 
+    This failed, for many reasons
+Remove the FTD Data from the models, which would serve two purposes
+    It outright solves the problem of the delayed data
+    Provides a proper comparison and evaluation of the FTD Data and its effect on the accuracy of the models 
+    
+Problem Two : Improving Model Accuracy and Predication Capabilities
+While the models from Project 2 were able to quite accurately track the same-day closing price using our provided dataset, they were not ready or set up to accurately make future predictions using the data. 
+Originally, the models only really performed same-day predictions using our datasets
+Now, the Neural Network (NN) models have been improved to be capable of 1, 2, 5 and 10-day forecasting 
+Additionally, an LSTM-model has been created which can supplement the NN models as additional prediction method. 
+    The LSTM model method is quite effective at predicting same-day prices, similar to the NN from Project_2, however it requires significant amounts of setup and time to run in order to accurately forecast prices as effectively as the NN models 
 
-Afterwards, the models FTD_Project_2 can be used with the new column of predicted FTD data, alongside real, up to date EOD-data that was not present for training, in order to attempt to predict future price movements of our selected stocks. 
+Model Details 
+Five sets of models were created and trained
+For the first three model sets: 
+Data was used from the start of 2016 until the end of December 2021
+Predictions were then made up to the first 10 trading days into January
+This allowed the models to be accurately evaluated, as all data from January is available 
+The last two model sets:
+Use data up to the end of January 2022 
+Proof-of-concept of how this project can be used to predict closing prices on stock symbols 
 
-Additionally - control models (models without FTD data) will be created and evaluated to determine the exact effect FTD data is having on this Machine Learning Project, in comparison to the short interest data, techinical indicator data, and raw historical data also being fed into the models. 
+What is a model set? 
+Model set = 770+ individual models, one (or 4) per stock symbol provided 
+Models 1, 2, and 4 contain 4 models per symbol, or 3080 models per set 
 
-At the moment - FTD data is available up to the end of 2021 (Dec 31st). On February 1st, FTD data for Jan 1st until Jan 15th will be released. These 15 days of FTD data will be compared against the FTD_LSTM models, to see if they are capable of accurately predicting FTD data ahead of when FTD released. 
+What are the model sets?
 
-If the data is accurate? Then we can use the predicted FTD data to fill in 15 day-delay in reporting, and then predict the following (Jan 16th-Jan 31st) price movements, and compare them to real-life data. 
+Model_1 
+Is a Neural Network which provides 1-, 2-, 5-, and 10-day price forecasts
+Trained with FTD data  
 
-If this works? Then this model can be used to make price predictions, every 15 days (on the 1st and ~15th of every month) to attempt to predict the next 15 days of trading movements. And these predictions can then be used to make trading decisions on the stock symbols that come out of this. 
+Model_2 
+Also a Neural Network which provides 1-, 2-, 5-, and 10-day price forecasts
+Did not train with FTD data 
+Used as a control to Model_1 to compare the effect of FTD data on the accuracy of our models 
 
-If time allows - more than LSTM will be used for FTD prediction. But for now, a LSTM model will be contructed to suplement the existing neural network models that are accurately tracking price movement of approximately ~250 different stock symbols. 
+Model_3
+LSTM model which provides a 1-day price forecast 
+Trained with FTD data 
+Proof-of-concept of how to use machine learning methods which require 3-dimensional inputs with our dataset 
+ 
+Model_4 
+Is a Neural Network which provide 1-, 2-, 5-, and 10-day price forecasts
+Includes data up to the end of January 2022, in order to provide a forecast into February 2022 
+Trained without FTD data, as FTD data at the moment does not go to the end of January 
+
+Model_5
+An improved LSTM model relative to Model_3 
+Attempts to provide a 10-day price forecast like the forecast provided by Model_4 
+
 
 
 
@@ -88,10 +131,8 @@ path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'
 
 ## Updates 
 
-Models are finished. For now. Evaluation and comparison on completed models needs to be performed. 
+Models are finished. For now.  
 
 ## Next steps - 
 
-Evaluate and compare models. Prepare data for presentation. 
-
-Find out status of "front-end" development from other group members. 
+Finish presentation and prepare front-end demonstration. 
