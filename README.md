@@ -74,9 +74,9 @@ There are two sets of Neural Network (NN) models which are direct improvements u
 
 Model locations: 
 Model_1: 
-path_1 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data
+path_1 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data
 Model_2: 
-path_2 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data 
+path_2 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data 
 
 
 
@@ -107,26 +107,39 @@ path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'
 
 Code is located in their respective Functions_ Folder
 
+## Code Folders 
+
+Functions_Date_shift_models/ contains the code which tested and built the NN models that comprise model sets 1 and 2
+Functions_Evaluation/ contains the code which can load and evaluate all the fitted and saved model results
+Functions_Feb2022_Models/ contains the code which tested and built model sets 4 and 5 
+
+Functions_Jan2022/ is an important folder, and contains the code which collects the data used for the features of the machine learning models, as well as the code which helps calculate and decide which symbols to process machine learning on. It also contains the code for running technical indicators. The model code (07) in this folder, while an improved version of the models from FTD_Project_2, was effectively scrapped in favour of the models built and created in the Functions_Date_shift_models/ folder 
+
+Functions_Jan2022_GRU/ can be ignored. Was tested in other folders and GRU testing was dropped due to lack of time to fit the models. Will be tested in the future. 
+Functions_Jan2022_LSTM/ contains the code that tested and built model set 3, and LSTM testing code in general. Testing code inside may be useful if trying to understand shaping process for LSTM data. 
+Functions_Predict_FTDs/ testing folder for attempting to predict FTDs, was ultimately a failure. Would need an entirely different dataset in order to attempt to predict FTDs 
+Functions_Update_Dataframes/ code to build updates for DataFrames of stock data, without needing to overwrite any existing data 
+
 
 ## Machine Learning Folders
 
 Model locations: 
 Model_1: 
-path_1 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data
+path_1 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data
 Model_2: 
-path_2 = Path('../Model_Data/Date_Test_NN_w_FTD_all/')   Contains models trained with FTD data 
+path_2 = Path('../Model_Data/Date_Test_NN_noFTD_all/')   Contains models trained without FTD data 
 
 Model Location:
 Model_3: 
-path_3 = Path('../Model_Data/LSTM_Model_Data_1/')  ## Contains LSTM models trained with FTD data, up to Dec31st. 
+path_3 = Path('../Model_Data/LSTM_Model_Data_1/')   Contains LSTM models trained with FTD data, up to Dec31st
 
 Model Location:
 Model_4:
-path_4 = Path('../Model_Data/Feb2022_NN_models/') Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February. 
+path_4 = Path('../Model_Data/Feb2022_NN_models/')    Contains NN models, capable of taking January's data and making predictions 1, 2, 5, or 10 trading days into February
 
 Model Location:
 Model_5:
-path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'
+path_5 = Path('../Model_Data/Feb2022_LSTM_models_1/'   Contains LSTM models, which use the same data as Model Set 4, but use LSTM to make a 10-day prediction into February 
 
 
 ## Updates 
